@@ -1,0 +1,93 @@
+/* PC */
+@media (min-width: 1024px) {
+    
+}
+
+/* tablet & mobile */
+@media (max-width: 1023px){
+    .contact-info{
+        line-height: 2;
+    }
+
+    .btn{
+        padding: 15px 16px;
+    }
+
+    .contact-control {
+        padding: 14px 8px;
+    }
+
+    #footer .social-list a{
+        margin: 0 8px;
+    }
+
+    #footer .copyright{
+        padding: 12px 0;
+    }
+}
+
+/* tablet */
+@media (min-width: 740px) and (max-width: 1023px){
+
+}
+
+/* mobile */
+@media (max-width: 740px){
+    .s-col-full{
+        width: 100%;
+    }
+
+    .s-mt-16{
+        margin-top: 16px;
+    }
+
+    .s-mt-8{
+        margin-top: 8px;
+    }
+    
+    .s-mt-32{
+        margin-top: 32px;
+    }
+    
+    #header{
+        overflow: hidden;
+    }
+
+    #header .mobile-menu-button{
+        display: block;
+    }
+    
+    #nav{
+        display: block;
+    }
+
+    #nav > li:first-child{
+        display: inline-block;
+    }
+    
+    #nav > li{
+        display: block;
+    }
+
+    #nav .subnav{
+        position: initial;
+        background-color: #333;
+    }
+
+    #nav .subnav a{
+        color: #fff;
+        padding: 5px 24px;
+    }
+
+    #content .member-image{
+        width: 60%;
+    }
+
+    .search-button{
+        display: none;
+    }
+
+    .btn{
+        width: 100%;
+    }
+}

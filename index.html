@@ -8,6 +8,7 @@
     <link rel="icon" href="./assets/img/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="./assets/css/reponsive.css">
 </head>
 <body>
     <div id="main">
@@ -19,7 +20,7 @@
                 <li><a href="#tour">Tour</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li>
-                    <a href="">
+                    <a href="#">
                         More
                         <i class="nav-arrow-down ti-angle-down"></i>
                     </a>
@@ -32,11 +33,15 @@
             </ul>
             <!--End Nav-->
 
+            
+            <div id= "mobile-menu" class="mobile-menu-button">
+                <i class="menu-icon ti-menu"></i>
+            </div>
+
             <!--Begin Search Button-->
             <div class="search-button">
                 <i class="search-icon ti-search"></i>
             </div>
-
             <!--End Search Button-->
         </div>
 
@@ -58,17 +63,17 @@
                 </p>
 
                 <div class="row member-lists">
-                    <div class="col col-third  text-center">
+                    <div class="col col-third mt-32 s-col-full text-center">
                         <p class="member-name">Name</p>
                         <img src="./assets/img/Member/mem1.jpg" alt="Name" class="member-image">
                     </div>
 
-                    <div class="col col-third  text-center">
+                    <div class="col col-third mt-32 s-col-full text-center">
                         <p class="member-name">Name</p>
                         <img src="./assets/img/Member/mem1.jpg" alt="Name" class="member-image">
                     </div>
 
-                    <div class="col col-third text-center">
+                    <div class="col col-third mt-32 s-col-full text-center">
                         <p class="member-name">Name</p>
                         <img src="./assets/img/Member/mem1.jpg" alt="Name" class="member-image">
                     </div>
@@ -87,7 +92,7 @@
                     </ul>
                     
                     <div class="row place-lists">
-                        <div class="col col-third">
+                        <div class="col col-third mt-16 s-col-full">
                             <img src="./assets/img/Places/place1.jpg" alt="" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-address">New York</h3>
@@ -97,7 +102,7 @@
                             </div>
                         </div>
     
-                        <div class="col col-third">
+                        <div class="col col-third mt-16 s-col-full">
                             <img src="./assets/img/Places/place2.jpg" alt="" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-address">Paris</h3>
@@ -107,7 +112,7 @@
                             </div>
                         </div>
     
-                        <div class="col col-third">
+                        <div class="col col-third mt-16 s-col-full">
                             <img src="./assets/img/Places/place3.jpg" alt="" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-address">San Francisco</h3>
@@ -130,18 +135,18 @@
                 <p class="section-sub-heading">Fan? Drop a note!</p>
                 <form action="" class="contact-form">
                     <div class="row">
-                        <div class="col col-half contact-info">
+                        <div class="col col-half s-col-full contact-info">
                             <p><i class = "ti-location-pin"></i>Chicago, US</p>
-                            <p><i class = "ti-mobile"></i>Phone: +00 151515</p>
-                            <p><i class = "ti-email"></i>Email: mail@mail.com</p>
+                            <p><i class = "ti-mobile"></i>Phone: <a href="tel:+00 151515">+00 151515</a></p>
+                            <p><i class = "ti-email"></i>Email: <a href="mailto:mail@mail.com">mail@mail.com</a></p>
                         </div>
 
-                        <div class="col col-half contact-submit">
+                        <div class="col col-half s-col-full contact-submit s-mt-32">
                             <div class="row">
-                                <div class="col col-half">
+                                <div class="col col-half s-col-full">
                                     <input type="text" name="" id="" required class="contact-control" placeholder="Name">
                                 </div>
-                                <div class="col col-half">
+                                <div class="col col-half s-col-full s-mt-8">
                                     <input type="email" name="" id="" required class="contact-control" placeholder="Email">
                                 </div>
                             </div>
@@ -243,6 +248,40 @@
         modalContainer.addEventListener('click', function(event) {
             event.stopPropagation()
         })
+
+    </script>
+
+    <script>
+        var header = document.getElementById('header');
+        var mobileMenu = document.getElementById('mobile-menu');
+        var headerHeigt = header.clientHeight;
+
+        mobileMenu.onclick = function(){
+            var isClose = header.clientHeight === headerHeigt;
+
+            if(isClose){
+                header.style.height = 'auto';
+            }
+            else{
+                header.style.height = null;
+            }
+        }
+
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"]');
+        
+        for(var i = 0; i < menuItems.length; i++){
+            var menuItem = menuItems[i];
+        
+            menuItem.onclick = function(event){
+                var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav');
+                
+                if(isParentMenu){
+                    event.preventDefault();
+                }else{
+                    header.style.height = null;
+                }
+            }
+        } 
 
     </script>
 </body>
